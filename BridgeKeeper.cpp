@@ -14,7 +14,7 @@ void BridgeKeeper::StartScene()
   int numKnights = helper.GetNumberOfKnights();
   std::string name = "";
   std::string quest = "";
-  std::vector<Knight>::iterator it;
+
   for(int i = 0; i < numKnights; i++)
   {
     std::cout << "Please enter Knight " << i +  1 << "'s name: " << std::endl;
@@ -26,9 +26,7 @@ void BridgeKeeper::StartScene()
     Knight knight(name, quest); 
     knight.SetFavoriteColor(helper.GetRandomColor());
     m_knights.push_back(knight);  
-
   }
-
 
   for(int i = 0; i < numKnights; i++)
   {
