@@ -18,4 +18,4 @@ BridgeKeeper.o: BridgeKeeper.cpp
 	g++ -c BridgeKeeper.cpp
 
 clean:
-	rm *.o program
+	rm *.o progam
