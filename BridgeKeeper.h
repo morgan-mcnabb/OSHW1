@@ -3,18 +3,10 @@
 
 #include <vector>
 #include <string>
-#include "Knight.h"
 #include "Helper.h"
+#include "Knight.h"
+#include <iostream>
 
-class BridgeKeeper
-{
-  public:
-    BridgeKeeper();
-    void StartScene();
-  
-  private:
-    std::vector<Knight> m_knights; 
-    Helper helper;
-};
+void StartScene();
 
 #endif

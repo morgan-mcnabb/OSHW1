@@ -4,19 +4,13 @@
 #include <string>
 #include <vector>
 
-class Helper
-{
-  public:
-    Helper();
 
-    std::vector<std::string> m_colors = { "Blue", "Red", "Yellow", "Green", "Black",
-                                          "White", "Orange", "Purple", "Pink", "Brown" };
+extern std::vector<std::string> m_colors;
 
-    std::string GetRandomColor();
+std::string GetRandomColor();
 
-    int GetNumberOfKnights();
+int GetNumberOfKnights();
 
-};
 
 
 #endif

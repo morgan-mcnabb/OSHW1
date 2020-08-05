@@ -7,7 +7,6 @@
 class Knight : public Traveler
 {
   public:
-    Knight();
 
     Knight(std::string name, std::string quest);
 };

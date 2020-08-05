@@ -1,19 +1,11 @@
 #include "BridgeKeeper.h"
-#include "Knight.h"
-#include <iostream>
-#include <string>
-#include <limits>
 
-BridgeKeeper::BridgeKeeper()
+void StartScene()
 {
-
-}
-
-void BridgeKeeper::StartScene()
-{
-  int numKnights = helper.GetNumberOfKnights();
-  std::string name = "";
-  std::string quest = "";
+  int numKnights = GetNumberOfKnights();
+  std::vector<Knight> knights;
+  std::string name;
+  std::string quest;
 
   for(int i = 0; i < numKnights; i++)
   {
@@ -24,15 +16,14 @@ void BridgeKeeper::StartScene()
     getline(std::cin, quest); 
    
     Knight knight(name, quest); 
-    knight.SetFavoriteColor(helper.GetRandomColor());
-    m_knights.push_back(knight);  
+    knights.push_back(knight);  
   }
 
   for(int i = 0; i < numKnights; i++)
   {
-    std::cout << "Knight number " << i + 1 << "'s name is: " << m_knights[i].GetName() << std::endl;
-    std::cout << m_knights[i].GetName() << "'s quest is: " << m_knights[i].GetQuest() << std::endl;
-    std::cout << m_knights[i].GetName() << "'s favorite color is: " << m_knights[i].GetFavoriteColor() << std::endl;
+    std::cout << "Knight number " << i + 1 << "'s name is: " << knights[i].m_name << std::endl;
+    std::cout << knights[i].m_name << "'s quest is: " << knights[i].m_quest << std::endl;
+    std::cout << knights[i].m_name << "'s favorite color is: " << knights[i].m_favoriteColor << std::endl;
   }
 }
 
