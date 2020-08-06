@@ -11,6 +11,6 @@ std::string GetRandomColor();
 
 int GetNumberOfKnights();
 
-
+std::string to_lower(std::string string_to_transform);
 
 #endif
