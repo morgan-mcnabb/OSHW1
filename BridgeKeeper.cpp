@@ -13,7 +13,6 @@ void StartScene()
   std::string name;
   std::string quest;
   
-  std::cout << numKnights;
   for(int i = 0; i < numKnights; i++)
   {
     // tried to clean cin here, didn't work.
@@ -36,6 +35,7 @@ void StartScene()
     // Getting a floating point exception (core dumped) error. Have no idea
     // why. It only started occurring when I removed the 'Helper' class and
     // move the functions from that class into this file.
+    // Although it is crashing here, I don't think the problem is here.
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
