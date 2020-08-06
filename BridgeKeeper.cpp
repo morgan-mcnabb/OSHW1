@@ -1,4 +1,10 @@
 #include "BridgeKeeper.h"
+#include "Knight.h"
+#include <limits>
+#include <iostream>
+#include <vector>
+#include <string>
+
 
 void StartScene()
 {
@@ -6,17 +12,36 @@ void StartScene()
   std::vector<Knight> knights;
   std::string name;
   std::string quest;
-
+  
+  std::cout << numKnights;
   for(int i = 0; i < numKnights; i++)
   {
+    // tried to clean cin here, didn't work.
+    //std::cin.clear();
+    //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cout << "Please enter Knight " << i +  1 << "'s name: " << std::endl;
-    getline(std::cin, name);
+    std::getline(std::cin, name);
+    
+    // tried to clean cin here, didn't work.
+    //std::cin.clear();
+    //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Please enter Knight " << name << "'s quest: " << std::endl;
-    getline(std::cin, quest); 
+    std::getline(std::cin, quest);
+    
+    // tried to clean cin here, didn't work.
+    // tried to clean cin with every possible combination of locations,
+    // still broke.
+    // Getting a floating point exception (core dumped) error. Have no idea
+    // why. It only started occurring when I removed the 'Helper' class and
+    // move the functions from that class into this file.
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
+    std::cout << name << std::endl;
+    std::cout << quest << std::endl;
     Knight knight(name, quest);
-    std::cout << knight.m_favoriteColor << std::endl; 
     knights.push_back(knight);  
   }
 
@@ -37,7 +62,7 @@ void StartScene()
   for(int i = 0; i < knights.size();)
   {
     std::cout << "The 'bravest' of you steps forward towards the old man from scene 24, the Keeper.\n" << std::endl;
-    
+
     std::cout << "'STOP!' the Keeper exclaims." << std::endl;
     std::cout << "'Who would cross the bridge of death must answer me these questions three.'" << std::endl;
 
@@ -50,7 +75,7 @@ void StartScene()
     {
       std::cout << "\nYou hear the anguished cries as Knight " << knights[i].m_name << " plummets to their death in the Gorge of Eternal Peril.\n" << std::endl;
       knights.erase(knights.begin()+i);
-      
+
       continue;
     }
 
@@ -79,7 +104,7 @@ void StartScene()
 
       continue; 
     }
-     
+
 
     std::cout << "The Knight " << knights[i].m_name << " has been granted passage across by the Keeper!\n" << std::endl;
     i++;
@@ -94,4 +119,40 @@ void StartScene()
   }
 }
 
+int GetNumberOfKnights()
+{
+  int number = 0;
+  std::cout << "Please enter an integer: " << std::endl;
+
+  // this properly validates user input to only enter integers between 1 to 5
+  while(!(std::cin >> number) || (number < 1 || number > 5))
+  {
+    std::cout << "Invalid input. Please enter only integer values." << std::endl;
+
+    std::cout << "Please enter an integer: " << std::endl;
+
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+  }
+
+  // need to clear and ignore cin here, otherwise it muddles up the next input
+  // stream and makes the loop skip a field.
+  std::cin.clear();
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+  return number;
+}
+
+std::string to_lower(std::string string_to_transform)
+{
+  std::string transformed_string;
+  std::locale loc;
+  for(std::string::size_type i = 0; i < string_to_transform.length(); ++i)
+  {
+    int ascii_char_to_lower = (int)string_to_transform[i] | 0x20;
+    transformed_string.push_back(ascii_char_to_lower);
+  }
+
+  return transformed_string;
+}
 
