@@ -1,3 +1,4 @@
+CFLAGS = -fsanitize=address,undefined  -g
 
 program: main.o Traveler.o Knight.o BridgeKeeper.o
 	g++ main.o Traveler.o Knight.o BridgeKeeper.o -o program

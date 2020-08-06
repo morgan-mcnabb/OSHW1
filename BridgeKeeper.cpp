@@ -100,6 +100,10 @@ void StartScene()
       std::cout << "Brave Knight " << knight.m_name << ", with the quest to " << to_lower(knight.m_quest) << ", and the favorite color " << to_lower(knight.m_favoriteColor) << " has made it to the other side of the Gorge of Eternal Peril!" << std::endl;
     }
   }
+  else
+  {
+    std::cout << "The Gorge of Eternal Peril has consumed the souls of the entire adventuring party of Knights!" << std::endl;
+  }
 }
 
 int GetNumberOfKnights()
