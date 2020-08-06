@@ -2,8 +2,7 @@
 #define TRAVELER_H
 
 #include <string>
-#include "Helper.h"
-
+#include <vector>
 class Traveler
 {
   public:
@@ -12,6 +11,10 @@ class Traveler
     std::string m_quest;
     std::string m_favoriteColor;
     void SetFavoriteColor(std::string color);
+
+  private:
+    std::string GetRandomColor();
+    
 };
 
 #endif

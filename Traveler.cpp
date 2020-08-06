@@ -11,3 +11,12 @@ void Traveler::SetFavoriteColor(std::string color)
   m_favoriteColor = color;
 }
 
+std::vector<std::string> colors = { "Blue", "Red", "Yellow", "Green", "Black",
+  "White", "Orange", "Purple", "Pink", "Brown" };
+
+std::string Traveler::GetRandomColor()
+{
+  return colors[rand() % colors.size()];
+}
+
+
