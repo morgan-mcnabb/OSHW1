@@ -13,7 +13,6 @@ class Traveler
     void SetFavoriteColor(std::string color);
 
   private:
-    std::vector<std::string> m_colors;
     std::string GetRandomColor();
     
 };

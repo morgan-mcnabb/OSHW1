@@ -15,32 +15,15 @@ void StartScene()
   
   for(int i = 0; i < numKnights; i++)
   {
-    // tried to clean cin here, didn't work.
-    //std::cin.clear();
-    //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Please enter Knight " << i +  1 << "'s name: " << std::endl;
     std::getline(std::cin, name);
     
-    // tried to clean cin here, didn't work.
-    //std::cin.clear();
-    //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Please enter Knight " << name << "'s quest: " << std::endl;
     std::getline(std::cin, quest);
     
-    // tried to clean cin here, didn't work.
-    // tried to clean cin with every possible combination of locations,
-    // still broke.
-    // Getting a floating point exception (core dumped) error. Have no idea
-    // why. It only started occurring when I removed the 'Helper' class and
-    // move the functions from that class into this file.
-    // Although it is crashing here, I don't think the problem is here.
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    std::cout << name << std::endl;
-    std::cout << quest << std::endl;
     Knight knight(name, quest);
     knights.push_back(knight);  
   }
